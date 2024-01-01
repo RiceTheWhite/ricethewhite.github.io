@@ -1,0 +1,50 @@
+:root {
+	--color-1: #392467;
+	--color-2: #5D3587;
+	--color-3: #A367B1;
+	--color-4: #FFD1E3;
+}
+
+body {
+	background-color: var(--color-1);
+}
+
+h1 {
+	color: var(--color-3);
+}
+
+h3 {
+	color: var(--color-3);
+}
+
+span {
+	color: var(--color-3);
+	font-family: var(--bs-body-font-family);
+	font-size: calc(1.3rem + .6vw);
+}
+
+#status {
+	font-weight: bold;
+	font-size: calc(1.5rem + .6vw);
+}
+
+#spotify {
+	font-weight: bold;
+	font-size: calc(1.5rem + .6vw);
+}
+
+h5 {
+	color: var(--color-4);
+}
+
+.divider {
+	border: solid var(--color-2) 3px;
+	border-radius: 10px;
+	height: 0px;
+	margin: 10px;
+}
+
+
+.glow {
+	text-shadow: 0px 0px 5px;
+}
