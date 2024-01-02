@@ -10,20 +10,27 @@
     <script>
       window.ondataload = () => { }
       fetch("https://api.lanyard.rest/v1/users/401649298598658048").then((a) => a.json().then((a) => {
-          window.lanyard = a.data
-          window.ondataload()
+        window.lanyard = a.data
+        window.ondataload()
       }))
     </script>
   </head>
   <body>
     <div class="divider"></div>
     <div class="container">
-
-      <h1 class="glow">hey, im rais.</h1>
-      <img src="https://cdn.discordapp.com/avatars/401649298598658048/6e4e6fb60ae7da5e1ebcdefd6625c57a.webp?size=256" alt="pfp">
-
       <script>
         window.ondataload = () => {
+          getStatus()
+          setInterval(() => {
+            getStatus()
+          }, 10000);
+        }
+
+        function getStatus() {
+          fetch("https://api.lanyard.rest/v1/users/401649298598658048").then((a) => a.json().then((a) => {
+            window.lanyard = a.data
+            window.ondataload()
+          }))
           if (window.lanyard.discord_status != 'offline') {
             statusText.innerHTML = `Online`;
             document.getElementById('statusText').style.color = '#00ffaa';
@@ -39,18 +46,24 @@
                 // return "&#" + s.charCodeAt(0) + ";";
                 return (s.match(/[a-z0-9\s]+/i)) ? s : "&#" + s.charCodeAt(0) + ";";
               });
-              statusSpotify.innerHTML = `Listening to <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}" class="opacity-50">${sanitized}</a> from <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}">${window.lanyard.spotify.album}</a> on <a href="https://open.spotify.com/user/31o3gf5lvfhlzo4xrzsmolk3o26i">Spotify</a> <br> <img src="https://i.scdn.co/image/ab67616d0000b2733f203b8d0d8e54fab416a825">`
+              statusSpotify.innerHTML = `Listening to <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}" class="opacity-50">${sanitized}</a> from <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}">${window.lanyard.spotify.album}</a> by <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}">${window.lanyard.spotify.artist}</a> on <a href="https://open.spotify.com/user/31o3gf5lvfhlzo4xrzsmolk3o26i">my Spotify</a> <br> <img src=${window.lanyard.spotify.album_art_url}>`
           }
         }
       </script>
-      <span>Status: </span>
-      <span id="statusText" class="glow">Loading...</span>
+      <div class="d-flex flex-row mb-3">
+        <img class="p-2" src="https://cdn.discordapp.com/avatars/401649298598658048/6e4e6fb60ae7da5e1ebcdefd6625c57a.webp?size=256" alt="pfp">
+        <div>
+          <h1 class="p-2 glow">hey, im rais.</h1>
+          <h3 class="p-2">software developer, infosecurity, fullstack developer, game developer, and website designer</h3>
+          <span>Status: </span>
+          <span id="statusText" class="glow">Loading... </span>
+          <span>(Updates every 10 seconds)</span>
+        </div>
+      </div>
       <br>
       <span id="statusSpotify">rais is not listening to anything...</span>
-      <h3>software developer, infosecurity, fullstack developer, game developer, and website designer</h3>
-      <br>
-      <h5>hey! im rais, im a (un)professional developer mostly interested in pixel art and games.</h5>
-      <h5>here are my works.</h5>
+      <h3>hey! im rais, im a (un)professional developer mostly interested in pixel art and games.</h3>
+      <h3>here are my works.</h3>
     </div>
   </body>
 </html>
