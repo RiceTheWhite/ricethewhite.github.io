@@ -20,14 +20,18 @@
     <div class="container">
 
       <h1 class="glow">hey, im rais.</h1>
-      <img src="https://cdn.discordapp.com/avatars/401649298598658048/6e4e6fb60ae7da5e1ebcdefd6625c57a.webp?size=128" alt="">
+      <img src="https://cdn.discordapp.com/avatars/401649298598658048/6e4e6fb60ae7da5e1ebcdefd6625c57a.webp?size=256" alt="pfp">
 
       <script>
         window.ondataload = () => {
           if (window.lanyard.discord_status != 'offline') {
-            document.getElementById("status").textContent = "Online";
+            statusText.innerHTML = `Online`;
+            document.getElementById('statusText').style.color = '#00ffaa';
+
           } else {
-            document.getElementById("status").textContent = "Offline";
+            statusText.innerHTML = `Offline`;
+            document.getElementById('statusText').style.color = '#ff5050';
+
           }
 
           if (window.lanyard.listening_to_spotify) {
@@ -35,18 +39,18 @@
                 // return "&#" + s.charCodeAt(0) + ";";
                 return (s.match(/[a-z0-9\s]+/i)) ? s : "&#" + s.charCodeAt(0) + ";";
               });
-              statusText.innerHTML = `Listening to <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}" class="opacity-50">${sanitized}</a> on <a href="https://open.spotify.com/user/31o3gf5lvfhlzo4xrzsmolk3o26i">Spotify</a>`
+              statusSpotify.innerHTML = `Listening to <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}" class="opacity-50">${sanitized}</a> from <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}">${window.lanyard.spotify.album}</a> on <a href="https://open.spotify.com/user/31o3gf5lvfhlzo4xrzsmolk3o26i">Spotify</a> <br> <img src="https://i.scdn.co/image/ab67616d0000b2733f203b8d0d8e54fab416a825">`
           }
         }
       </script>
       <span>Status: </span>
-      <span id="status" class="glow">Loading...</span>
-
-      <h3 id="statusText">rais is not listening to anything...</h3>
-      
-
-      <h3>software developer, infosecurity, front-end developer, game developer</h3>
+      <span id="statusText" class="glow">Loading...</span>
+      <br>
+      <span id="statusSpotify">rais is not listening to anything...</span>
+      <h3>software developer, infosecurity, fullstack developer, game developer, and website designer</h3>
+      <br>
       <h5>hey! im rais, im a (un)professional developer mostly interested in pixel art and games.</h5>
+      <h5>here are my works.</h5>
     </div>
   </body>
 </html>
