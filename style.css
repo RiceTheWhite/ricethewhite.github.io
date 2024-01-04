@@ -15,6 +15,14 @@ h1 {
 
 h3 {
 	color: var(--color-3);
+	font-weight: normal;
+}
+
+.link-color {
+	color: var(--color-3);
+	font-family: var(--bs-body-font-family);
+	font-size: calc(1.3rem + .6vw);
+	text-decoration: none
 }
 
 span {
