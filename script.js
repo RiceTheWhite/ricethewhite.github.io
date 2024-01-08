@@ -44,7 +44,7 @@ window.ondataload = () => { }
 let secondsUntilUpdate = 0
 
 fetch("https://api.lanyard.rest/v1/users/401649298598658048").then((a) => a.json().then((a) => {
-  window.lanyard = a.data
+  window.lanyard = a.data;
   setInterval(() => {
     setStatus()
   }, 1000);
