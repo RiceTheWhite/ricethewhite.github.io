@@ -34,7 +34,7 @@ function setStatus() {
     });
     statusSpotify.innerHTML = `Listening to <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}" class="opacity-50">${sanitized}</a> from <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}">${window.lanyard.spotify.album}</a> by <a href="https://open.spotify.com/track/${encodeURIComponent(window.lanyard.spotify.track_id)}">${window.lanyard.spotify.artist}</a> on <a href="https://open.spotify.com/user/31o3gf5lvfhlzo4xrzsmolk3o26i">my Spotify</a> <br> <img src=${window.lanyard.spotify.album_art_url}>`
   } else {
-    statusSpotify.innerHTML = `rais is not listening to anything...`
+    statusSpotify.innerHTML = `Spotify: not listening to anything...`
   }
 }
 

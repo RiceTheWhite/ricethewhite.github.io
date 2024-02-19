@@ -57,6 +57,7 @@ function setSprite(dir) {
     catElement.style.backgroundImage = `url(${`cat/jump2_${dir}.png`})`
     return
   }
+  console.log(`url(${`cat/jump${animFrame%4+1}_${dir}.png`})`)
   catElement.style.backgroundImage = `url(${`cat/jump${animFrame%4+1}_${dir}.png`})`
 }
 
@@ -70,11 +71,18 @@ function frame() {
   const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
   let direction;
-  direction = diffY / distance > 0.5 ? "N" : "";
-  direction += diffY / distance < -0.5 ? "S" : "";
-  direction += diffX / distance > 0.5 ? "W" : "";
-  direction += diffX / distance < -0.5 ? "E" : "";
+  // 8 dir
+  
+  // direction = diffY / distance > 0.5 ? "N" : "";
+  // direction += diffY / distance < -0.5 ? "S" : "";
+  // direction += diffX / distance > 0.5 ? "W" : "";
+  // direction += diffX / distance < -0.5 ? "E" : "";
 
+
+
+  // 2 dir
+  direction = diffX/Math.abs(diffX) == 1 ? "W" : "E";
+  
   if (mouseDown) {
     catElement.style.pointerEvents = "auto";
     catElement.style.cursor = "grabbing";
