@@ -60,3 +60,7 @@ h5 {
 	text-decoration: none
 }
 
+.card{
+	background-color: var(--color-2);
+	text-decoration: none;
+}
